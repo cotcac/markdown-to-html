@@ -1,0 +1,20 @@
+<h1 id="how-to-write-a-guide">How to write a Guide</h1>
+<h2 id="step-1-write-a-markdown-file">Step 1: Write a markdown file</h2>
+<pre><code># /markdown/link1.md
+# This is link1</code></pre><h2 id="step-2-write-a-middleware">Step 2: Write a middleware</h2>
+<pre><code>// routes/guide/link1.js
+const convert = require(&quot;../../lib/convert&quot;);
+const compile = require(&quot;../../lib/compile&quot;);
+const body = async (req, res, next) =&gt; {
+  const path1 = &quot;guide/link1&quot;;
+  await convert(path1);
+  res.write(compile.loadView(`./views/${path1}.handlebars`), {});
+  next();
+};
+module.exports = body;</code></pre><h2 id="step-3-write-a-routes">Step 3: Write a routes</h2>
+<pre><code>//routes/guide/index.js
+router.get(&quot;/link1&quot;, layout.header(), require(&quot;./link1&quot;), layout.footer);</code></pre><h2 id="put-link1-in-menu">Put link1 in MENU</h2>
+<pre><code>// views/header.handlebars
+ &lt;li&gt;
+    &lt;a href=&quot;/guide/link1&quot;&gt;Link1&lt;/a&gt;
+&lt;/li&gt;</code></pre><p>That&#39;s it.</p>
