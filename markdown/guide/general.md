@@ -1,4 +1,9 @@
 # Genaral guide
+## When you should use this.
+This is a Good way to create landing page or document for a project.
+Best to fit site that have under 50 pages.  
+If you want a site with a thousand pages you should have a database instead.
+- Best Practice a create all the routes in the MENU first. Then fillful the markdown later.  
 
 ## Relative Link
 
