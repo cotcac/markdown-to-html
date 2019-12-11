@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+var serveStatic = require("serve-static");
 require("dotenv").config();
 var exphbs = require("express-handlebars");
 var app = express();
@@ -15,15 +16,12 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  serveStatic(path.join(__dirname, "public"), {
+    maxAge: "1d"
+  })
+);
 app.use("/files", express.static("files"));
-app.use((req, res, next) => {
-  if (!process.env.NODE_ENV === "production") {
-    console.log("!production convert markdown to html");
-  }
-  console.log("call me");
-  next();
-});
 require("./routes")(app);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
