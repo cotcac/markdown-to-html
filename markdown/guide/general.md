@@ -24,6 +24,11 @@ module.exports = function(app) {
 ```
 
 ## Image
+```
+![Alt][1]
+
+[1]: /files/test.png "Title"
+```
 
 ![Alt][1]
 
