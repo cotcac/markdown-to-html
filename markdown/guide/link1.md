@@ -11,7 +11,7 @@
 ## Step 2: Put link1 in MENU 
 
 ```
-// views/menu.handlebars
+// views/menu/guide.handlebars
  <li>
     <a href="/guide/link1">Link1</a>
 </li>
