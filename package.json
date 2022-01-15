@@ -14,7 +14,7 @@
     "handlebars": "^4.5.3",
     "hbs": "~4.0.4",
     "http-errors": "~1.6.3",
-    "marked": "^0.7.0",
+    "marked": "^4.0.10",
     "morgan": "~1.9.1"
   }
 }
